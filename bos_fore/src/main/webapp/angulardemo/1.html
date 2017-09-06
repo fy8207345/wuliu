@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>AngulaJ双向数据绑定</title>
+		<script type="text/javascript" src="../js/angular.min.js"></script>
+	</head>
+	<!--ng-app相当于入口-->
+	<body ng-app>
+		<div>
+			<!--ng-model模型作用-->
+			<input type="text" name="name" ng-model="name"/>
+		</div>
+		<div>
+			<!--{{}}等价于ng-bind数据显示-->
+			Hello,{{name}}
+		</div>
+		
+	</body>
+</html>

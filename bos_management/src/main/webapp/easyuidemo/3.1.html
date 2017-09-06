@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>选项卡tabs</title>
+		<!--
+        	定义类库
+        -->
+		<script type="text/javascript" src="../js/jquery-1.8.3.js"></script>
+		<script type="text/javascript" src="../js/easyui/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="../js/easyui/locale/easyui-lang-zh_CN.js"></script>
+		<link rel="stylesheet" type="text/css" href="../js/easyui/themes/default/easyui.css"> 
+		<link rel="stylesheet" type="text/css" href="../js/easyui/themes/icon.css">
+	
+		<script type="text/javascript">
+			$(function(){
+				//对链接绑定点击事件
+				$("#linkzz").click(function(){
+					$("#mytabs").tabs('add',{
+						title:'传智播客',
+						content:'培训教育',
+						//selected:false
+					});
+				});
+			});
+		</script>
+		
+	
+	</head>
+	<body class="easyui-layout">
+			<div data-options = "region:'north',title:'传智播客管理系统',split:true" style="height: 100px;" >北部区域</div>
+			<div data-options = "region:'west',split:true,title:'菜单导航'" style="width: 80px;">
+				<div class="easyui-accordion" data-options="fit:true">
+					<div data-options = "title:'基础菜单'">
+						<!--点击事件-->
+						<a href="javascript:void(0)" id="linkzz">传智播客</a>
+					</div>
+					<div data-options="title:'系统菜单'">面板二</div>
+				</div>
+			</div>
+			<div data-options = "region:'center',split:true" style="padding: 5px;background: #eee;">
+				<div id="mytabs" class="easyui-tabs" data-options="fit:true">
+					<div data-options= "title:'选项卡一',closable:true">选项卡一</div>
+					<div data-options="title:'选项卡二',closable:true">选项卡二</div>
+				</div>
+			</div>
+			<div data-options = "region:'east',split:true" style="width: 80px;">东部区域</div>
+			<div data-options = "region:'south',split:true" style="height: 100px;">南部区域</div>
+	
+	</body>
+	
+
+</html>

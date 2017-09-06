@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta content="application/xhtml+xml;charset=UTF-8" http-equiv="Content-Type">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>我的速运-注册</title>
+
+		<link rel="stylesheet" type="text/css" href="css/styleloginsign.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.min.css">
+
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/self/effect.js"></script>
+		<!--导入angular的js文件-->
+		<script type="text/javascript" src="js/angular.min.js"></script>
+		
+		<!--[if IE]>
+    <script  type="text/javascript" src="js/html5.js"></script>
+    <script  type="text/javascript" src="js/respond.min.js"></script>
+    <![endif]-->
+	</head>
+
+	<body>
+		<!--head-->
+		<div class="loginnav">
+			<nav class="navbar navbar-default">
+				<div class="container">
+					<div class="navbar-header">
+						<a class="navbar-brand" href="#"><img src="images/icon/logo.png"></a>
+						<span class="logintitle">用户注册</span>
+					</div>
+
+				</div>
+
+			</nav>
+		</div>
+		<div class="container">
+			<!--mainsignup-->
+			<section class="mainsign">
+				<div class="headnav">
+
+				</div>
+
+			<!--angular应用作用域，及控制器-->
+				<div class="signup" ng-app="signupApp" ng-controller="signupCtrl">
+					<div class="col-md-9 signupbox">
+						<!--注册提交的action-->
+						<!--注意页面里面的name属性值要和实体类里面保持一致，就是文本框输入的值-->
+						<form id="customerForm" action="customer_regist.action" method="post" class="form col-md-6">
+							<div class=" form-group">
+								<label for="inputaccount" class="col-sm-3 control-label"><b>*</b>手机号</label>
+								<div class="col-sm-8">
+									<!--在手机号的输入框定义一个model，并且绑定到验证码的点击事件上-->
+									<input type="text" class="form-control" name="telephone" ng-model="telephone" id="inputaccount" placeholder="请输入手机号">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputaccount" class="col-sm-3 control-label"><b>*</b>验证码</label>
+								<div class="col-sm-5">
+									<input type="text" class="form-control" id="inputaccount" placeholder="请输入验证码" name="checkCode">
+								</div>
+								<div class="col-sm-3 song">
+									<!-- 发送验证码按钮 -->
+									<!--给button按钮加一个点击事件-->
+									<!--绑定手机号模块-->
+									<!--把button改成a标签，否则点击按钮的时候就自动提交了-->
+									<a class="btn btn-default" ng-click="getCheckCode(telephone)"
+										ng-bind="btnMsg">
+										<!--将文字绑定到作用域上-->
+										
+									</a>
+								</div>
+
+							</div>
+							<div class="form-group">
+								<label for="inputaccount" class="col-sm-3 control-label"><b>*</b>密码</label>
+								<div class="col-sm-8">
+									<input type="password" class="form-control" id="inputaccount" placeholder="6-16位数字或英文字母" name="password">
+									<p class="text-right grey">安全强度：*****</p>
+								</div>
+
+							</div>
+
+							<div class="form-group">
+								<label for="inputaccount" class="col-sm-3 control-label"><b>*</b>确认密码</label>
+								<div class="col-sm-8">
+									<input type="password" class="form-control" id="inputaccount" placeholder="6-16位数字或英文字母">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputaccount" class="col-sm-3 control-label"><b>*</b>绑定邮箱</label>
+								<div class="col-sm-8">
+									<input type="email" class="form-control" id="inputemail" placeholder="请输入需要绑定的邮箱" name="email">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-offset-3 col-sm-8 song">
+									<div class="checkbox">
+										<label>
+      <input type="checkbox"> 查看并同意<a href="#"> 《速运快递服务协议》</a>
+    </label>
+									</div>
+
+								</div>
+							</div>
+							<div class="form-group signbtn">
+								<div class="col-sm-offset-3 col-sm-8 song">
+									<!--提交按钮,注意不要少写#号-->
+									<a class="btn btn-danger" href="javascript:$('#customerForm').submit()">注册</a>
+								</div>
+							</div>
+
+						</form>
+
+					</div>
+					<div class="col-md-3 introbox">
+						<div class="signintro">
+							<h5 class="redtext">注册成为速运会员，您可以享受更多的服务！</h5>
+							<ul>
+								<li class="list-group">积分奖励，电子运单专享特权</li>
+								<li class="list-group">快速理赔，保价优惠</li>
+								<li class="list-group">大陆偏远地区附加费减免</li>
+								<li class="list-group">快件路由订阅，快件信息管理，批量下单</li>
+
+							</ul>
+						</div>
+
+					</div>
+				</div>
+			</section>
+
+		</div>
+
+		<!--foot-->
+		<footer>
+			<section class="copyright size12">
+				<div class="container">
+					<p class="text-center">地址：北京市昌平区建材城西路金燕龙办公楼一层 邮编：100096 电话：400-618-4000 传真：010-82935100 </p>
+					<p class="text-center">京ICP备08001421号京公网安备110108007702</p>
+				</div>
+			</section>
+		</footer>
+
+
+		<script type="text/javascript">
+			//模块定义, 初始化
+			var signupApp=angular.module("signupApp",[]);
+			//控制器定义
+			//$scope是一个作用域的操作对象
+			//function里面的scope不要忘记定义了,一定要注意这块的书写，不要忘记写$http
+			signupApp.controller("signupCtrl",["$scope","$http",function($scope,$http){
+				//这是一个赋值操作
+				$scope.btnMsg="发送验证码";
+				//这是定义了一个标志，为true是可以获取验证码的，为false是不可以获取验证码的
+				var active=true;
+				var second=60;   //倒计时60秒
+				var secondInterval;   //定义了一个定时器
+				//点击事件,要加上手机号的model
+				$scope.getCheckCode=function(telephone){
+					if(active==false){
+						return ;
+					}
+					
+					//对填写的手机号的校验,用正则表达式
+					var regex=/^1(3|5|7|8|)\d{9}$/ ;
+					if(regex.test(telephone)){
+						//检验成功
+						//alert("校验成功");
+						//使用$http和外部进行通信,返回的是一个promise对象
+						$http({
+								method: 'GET',
+								url: 'customer_sendSms.action',
+								params : {
+									telephone : telephone
+									}
+								// 当相应准备就绪时调用
+								}).error(function(data,status,headers,config) {
+								// 当响应以错误状态返回时调用
+									alert("发送短信出错，请联系管理员");
+								});
+						}else{
+						//校验失败
+						alert("手机号输入有误");
+						return ;
+					}
+					
+					
+					//触发那个点击事件，就把active置为false
+					active=false;
+					//setInterval这个是时间间隔
+					secondInterval=setInterval(function(){
+						if(second<0){
+							//倒计时结束，允许重新发送
+							$scope.btnMsg="重新发送";
+							//强制更新视图
+							$scope.$digest();
+							active=true;
+							second=60;
+							//关闭定时器
+							clearInterval(secondInterval);
+							secondInterval=undefined;
+						}else{
+							//继续计时
+							$scope.btnMsg=second+"秒后重发";
+							//强制更新视图
+							$scope.$digest();
+							second--;
+						}
+					},1000);
+				}
+			}]);
+			
+		</script>
+	</body>
+
+</html>
