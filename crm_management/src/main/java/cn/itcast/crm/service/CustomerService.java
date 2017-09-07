@@ -46,7 +46,7 @@ public interface CustomerService {
 	
 	@Path("/telephone/{telephone}")
 	@GET
-	@Consumes({"application/xml","application/json"})
+	@Consumes({"application/xml","application/json"})    
 	public Customer findByTelephone(@PathParam("telephone") String telephone);
 	
 	//修改状态码

@@ -282,7 +282,12 @@
 			<artifactId>spring-data-redis</artifactId>
 			<version>1.4.1.RELEASE</version>
 		</dependency>
-		
+
+	 	<dependency>
+	 		<groupId>org.apache.xbean</groupId>
+	 		<artifactId>xbean-spring</artifactId>
+	 		<version>3.7</version>
+	 	</dependency>
 	</dependencies>
 
 	<build>

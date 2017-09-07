@@ -21,4 +21,7 @@
 	
 	<import resource="applicationContext-cache.xml"/>
 	
+	<!-- activeMq队列，实现发短信功能的分离 -->
+	<import resource="applicationContext-mq.xml"/>
+	
 </beans>
