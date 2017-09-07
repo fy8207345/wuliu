@@ -51,18 +51,6 @@ public class CustomerAction extends BaseAction<Customer>{
 		//编辑短信内容
 		final String msg="尊敬的用户，本次您获得的验证码为"+randomCode+"服务电话为：100100100";
 		
-		//使用sms发送短信
-		//String results=SmsUtils.sendSmsByHTTP(model.getTelephone(), msg);
-//		String results="000/xxxx";
-//		if(results.startsWith("000")){
-//			/*Action.NONE是struts中内置的一个返回字符串，和Action.SUCCESS一样。
-//			 * 与SUCCESS不同的是，NONE并不进行页面"跳转"。一般用在Ajax请求中。
-//			 * */
-//			return NONE;
-//		}else{
-//			throw new RuntimeException("发送信息失败"+results);
-//		}
-		
 		//调用MQ服务，发送一条短信
 		jmsTemplate.send("bos_sms",new MessageCreator() {
 			
