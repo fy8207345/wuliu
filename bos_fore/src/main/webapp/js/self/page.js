@@ -24,10 +24,11 @@ bosfore_app.controller("ctrlRead", ['$scope', '$http', function($scope, $http) {
 
 		$http({
 			method: 'GET',
-			url: 'data/promotion' + page + '.json',
+			//修改这个路径，后bos后台联系
+			url: 'promotion_pageQuery.action',
 			params: {
-				"page": page,
-				"pageSize": $scope.pageSize
+				"page": page,    //当前页
+				"pageSize": $scope.pageSize    //每页显示的个数
 			}
 		}).success(function(data, status, headers, config) {
 			// 显示表格数据 

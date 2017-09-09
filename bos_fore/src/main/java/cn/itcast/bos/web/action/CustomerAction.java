@@ -26,7 +26,6 @@ import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Controller;
 
 import cn.itcast.bos.utils.MailUtils;
-import cn.itcast.bos.utils.SmsUtils;
 import cn.itcast.bos.web.commons.BaseAction;
 import cn.itcast.crm.domain.Customer;
 
