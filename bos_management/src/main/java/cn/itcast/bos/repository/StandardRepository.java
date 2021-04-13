@@ -7,7 +7,9 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import cn.itcast.bos.domain.base.Standard;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface StandardRepository extends JpaRepository<Standard,Integer>{
 	
 	//根据收派标准名称查询

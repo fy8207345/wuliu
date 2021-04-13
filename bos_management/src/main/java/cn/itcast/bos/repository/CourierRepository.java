@@ -6,7 +6,9 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import cn.itcast.bos.domain.base.Courier;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface CourierRepository extends JpaRepository<Courier, Integer> ,
 	JpaSpecificationExecutor<Courier>{
 	//JpaSpecificationExecutor有条件的查询
